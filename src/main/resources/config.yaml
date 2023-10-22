@@ -1,0 +1,12 @@
+bot:
+  token: "place your token here"
+  activitytype: "playing"
+  activityname: "with your taser"
+  status: "online"
+
+database:
+  host: "localhost"
+  port: "3306"
+  database: "database"
+  username: "username"
+  password: "password"
