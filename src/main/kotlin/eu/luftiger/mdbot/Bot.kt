@@ -102,14 +102,28 @@ object Bot {
 
 
         logger.info("Bot started! Type 'stop' to stop the bot.")
-        while(true){
-            val input = readlnOrNull()
-            if(input == "stop" || input == "exit" || input == "quit"){
-                logger.info("Stopping bot...")
-                jda!!.shutdown()
-                logger.info("Bot stopped!")
-                break
+
+        var waitForInput = true
+        while(waitForInput){
+            when(readlnOrNull()){
+                "reload" -> {
+                    waitForInput = false
+                    reload()
+                }
+
+                "stop", "exit", "quit" -> {
+                    logger.info("Stopping bot...")
+                    waitForInput = false
+                    jda!!.shutdown()
+                }
+                else -> logger.info("Unknown command!")
             }
         }
+    }
+
+    private fun reload(){
+        logger.info("Reloading bot...")
+        jda!!.shutdown()
+        run()
     }
 }
