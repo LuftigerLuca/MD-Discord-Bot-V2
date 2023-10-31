@@ -14,7 +14,7 @@ class ConfigurationHandler {
         val configurationFile = File("config.yaml")
         if (!configurationFile.exists()) {
             val inputStream = this.javaClass.classLoader.getResourceAsStream("config.yaml")
-            Files.copy(inputStream, configurationFile.toPath())
+            Files.copy(inputStream!!, configurationFile.toPath())
         }
 
         return objectMapper.readValue(configurationFile, Configuration::class.java)
