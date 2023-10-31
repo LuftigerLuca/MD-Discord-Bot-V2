@@ -32,6 +32,7 @@ build/
 !**/src/test/**/build/
 
 /.idea
+/config.yaml
 
 ### VS Code ###
 .vscode/
